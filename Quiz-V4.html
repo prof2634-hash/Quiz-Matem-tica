@@ -1,0 +1,1208 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Show de Matemática 6º Ano</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root{color-scheme:dark}
+body{background:#0f172a}
+.fa-solid,.fa-regular{display:inline-block;font-style:normal;line-height:1}
+.fa-circle::before{content:"○"}
+.fa-circle-check::before{content:"✓"}
+.fa-circle-xmark::before{content:"✗"}
+.fa-circle-arrow-right::before{content:"➜"}
+.fa-face-laugh-beam::before{content:"😄"}
+.fa-face-smile::before{content:"🙂"}
+.fa-gear::before{content:"⚙"}
+.fa-graduation-cap::before{content:"🎓"}
+.fa-heart::before{content:"❤"}
+.fa-infinity::before{content:"∞"}
+.fa-layer-group::before{content:"☰"}
+.fa-lightbulb::before{content:"💡"}
+.fa-magnifying-glass::before{content:"🔍"}
+.fa-play::before{content:"▶"}
+.fa-rotate-right::before{content:"↻"}
+.fa-star::before{content:"★"}
+.fa-volume-high::before{content:"🔊"}
+.fa-volume-xmark::before{content:"🔇"}
+</style>
+<meta name="theme-color" content="#0f172a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script>
+        if (window.tailwind) tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { display: ['Luckiest Guy', 'cursive'], sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { yellow: '#FBBF24', gold: '#D97706', blue: '#2A75BB', darkblue: '#3C5AA6', teal: '#5EEAD4' }
+                    },
+                    animation: {
+                        'bounce-fun': 'bounceFun 1.8s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-subtle': 'pulseSubtle 2s infinite alternate'
+                    },
+                    keyframes: {
+                        bounceFun: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-8px)' } },
+                        pulseSubtle: { '0%': { transform: 'scale(1)' }, '100%': { transform: 'scale(1.02)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+* { -webkit-tap-highlight-color: transparent; }
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    min-height: 100vh;
+    color: #f8fafc;
+    overflow-x: hidden;
+    touch-action: manipulation;
+}
+.custom-card {
+    background: rgba(30, 41, 59, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 3px solid rgba(251, 191, 36, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+.speech-bubble {
+    position: relative;
+    background: #ffffff;
+    color: #0f172a;
+    border-radius: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    border: 4px solid #FBBF24;
+}
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    left: -18px;
+    top: 30px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid #FBBF24;
+}
+@media (max-width: 1024px) {
+    .speech-bubble::after {
+        left: 50%;
+        top: -18px;
+        transform: translateX(-50%);
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 20px solid #FBBF24;
+        border-top: none;
+    }
+}
+
+/* Mascote: boca e flutuação enquanto fala (compatível com Safari/iOS) */
+#mascotMouth { transform-box: fill-box; transform-origin: 50% 0%; }
+#mascotBox.talking #mascotMouth { animation: talkMouth 0.28s infinite alternate ease-in-out; }
+#mascotBox.talking .mascot-svg { animation: floatM 1.4s ease-in-out infinite alternate; }
+@keyframes talkMouth { 0% { transform: scaleY(0.55); } 100% { transform: scaleY(1.5); } }
+@keyframes floatM { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+@keyframes wiggleM { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+.wiggle { animation: wiggleM 0.5s ease-in-out 1; }
+
+.shape-preview svg { filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.4)); max-width: 100%; height: auto; }
+
+/* Botões de alternativa */
+.option-btn {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+    width: 100%; text-align: left;
+    background: #0f172a; border: 3px solid #334155; border-radius: 1rem;
+    color: #f1f5f9; font-weight: 800; padding: 0.9rem 1rem; font-size: 1.25rem;
+    transition: transform .2s, border-color .2s, background .2s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35); cursor: pointer;
+}
+.option-btn:hover:not(:disabled) { transform: translateY(-3px); border-color: #FBBF24; background: #1e293b; }
+.option-btn:active:not(:disabled) { transform: scale(0.98); }
+.option-btn .opt-left { display: flex; align-items: center; gap: 0.75rem; }
+.opt-letter {
+    width: 2.5rem; height: 2.5rem; border-radius: 0.75rem; flex-shrink: 0;
+    background: #FBBF24; color: #0f172a; display: flex; align-items: center; justify-content: center;
+    font-family: 'Luckiest Guy', cursive; font-size: 1.25rem;
+}
+.option-btn .opt-icon { font-size: 1.5rem; color: #64748b; }
+.option-btn:disabled { cursor: not-allowed; }
+.option-btn:disabled:not(.opt-correct):not(.opt-wrong):not(.opt-reveal) { opacity: 0.5; }
+.option-btn.opt-correct { background: #059669; border-color: #6ee7b7; color: #fff; animation: bounceOpt .6s ease; }
+.option-btn.opt-wrong { background: #e11d48; border-color: #fda4af; color: #fff; }
+.option-btn.opt-reveal { background: #047857; border-color: #34d399; color: #fff; }
+.option-btn.opt-correct .opt-icon, .option-btn.opt-wrong .opt-icon, .option-btn.opt-reveal .opt-icon { color: #fff; }
+@keyframes bounceOpt { 0%,100% { transform: translateY(0); } 40% { transform: translateY(-8px); } }
+
+/* Botões segmentados */
+.seg-btn { padding: 0.5rem 0.75rem; border-radius: 0.75rem; color: #cbd5e1; font-weight: 800; transition: all .2s; display: inline-flex; align-items: center; gap: .4rem; background: transparent; }
+.seg-btn:hover { color: #fff; }
+.seg-btn.is-active { background: #FBBF24; color: #0f172a; }
+
+.start-overlay { position: fixed; inset: 0; z-index: 60; background: radial-gradient(circle at center, #1e293b 0%, #0b1120 100%); display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.8); }
+::-webkit-scrollbar-thumb { background: #FBBF24; border-radius: 6px; }
+
+.hidden { display: none !important; }
+
+    </style>
+
+    <style>
+        #app { padding-block: 12px calc(6.5rem + env(safe-area-inset-bottom, 0px)); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); min-height: 100vh; }
+        .is-mobile .speech-bubble { border-width: 3px; border-radius: 1.1rem; }
+        .is-mobile .speech-bubble::after {
+            left: -13px; top: 22px; transform: none;
+            border-top: 9px solid transparent; border-bottom: 9px solid transparent;
+            border-right: 14px solid #FBBF24; border-left: none;
+        }
+        .is-mobile .option-btn { font-size: 1.15rem; padding: 0.8rem 0.9rem; min-height: 3.6rem; }
+        .is-mobile .opt-letter { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; }
+        .next-bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 0.75rem max(16px, env(safe-area-inset-right, 0px)) calc(0.75rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: linear-gradient(to top, #0f172a 60%, rgba(15,23,42,0)); z-index: 30; }
+    </style>
+
+<div id="app" class="is-mobile select-none">
+
+    <!-- TELA INICIAL (libera áudio no celular) -->
+    <div id="startOverlay" class="start-overlay">
+        <div class="text-center space-y-5 max-w-sm">
+            <div class="w-44 h-44 mx-auto"><svg viewBox="0 0 100 100" class="mascot-svg w-full h-full" style="filter: drop-shadow(0 12px 18px rgba(0,0,0,0.55));">
+    <!-- Antena com estrelinha -->
+    <line x1="50" y1="34" x2="50" y2="18" stroke="#0F766E" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="50,3 52.35,8.76 58.56,9.22 53.8,13.24 55.29,19.28 50,16 44.71,19.28 46.2,13.24 41.44,9.22 47.65,8.76" fill="#FBBF24" stroke="#D97706" stroke-width="1" stroke-linejoin="round"/>
+
+    <!-- Orelhinhas redondas -->
+    <circle cx="21" cy="42" r="9" fill="#5EEAD4" stroke="#0F766E" stroke-width="1.5"/>
+    <circle cx="21" cy="42" r="4.5" fill="#FBCFE8"/>
+    <circle cx="79" cy="42" r="9" fill="#5EEAD4" stroke="#0F766E" stroke-width="1.5"/>
+    <circle cx="79" cy="42" r="4.5" fill="#FBCFE8"/>
+
+    <!-- Pezinhos -->
+    <ellipse cx="38" cy="91" rx="10" ry="5" fill="#2DD4BF" stroke="#0F766E" stroke-width="1.5"/>
+    <ellipse cx="62" cy="91" rx="10" ry="5" fill="#2DD4BF" stroke="#0F766E" stroke-width="1.5"/>
+
+    <!-- Corpo -->
+    <ellipse cx="50" cy="62" rx="33" ry="30" fill="#5EEAD4" stroke="#0F766E" stroke-width="1.5"/>
+    <ellipse cx="50" cy="75" rx="19" ry="13" fill="#CCFBF1"/>
+
+    <!-- Bochechas -->
+    <circle cx="28" cy="64" r="5" fill="#FB7185" opacity="0.7"/>
+    <circle cx="72" cy="64" r="5" fill="#FB7185" opacity="0.7"/>
+
+    <!-- Olhos -->
+    <g>
+        <ellipse cx="38" cy="54" rx="5" ry="6.5" fill="#0F172A"/>
+        <circle cx="36.3" cy="51.5" r="2.1" fill="#FFFFFF"/>
+        <ellipse cx="62" cy="54" rx="5" ry="6.5" fill="#0F172A"/>
+        <circle cx="60.3" cy="51.5" r="2.1" fill="#FFFFFF"/>
+    </g>
+    <g class="hidden">
+        <path d="M 32 57 Q 38 47 44 57" stroke="#0F172A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 56 57 Q 62 47 68 57" stroke="#0F172A" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+    <g class="hidden">
+        <ellipse cx="38" cy="53" rx="5" ry="6.2" fill="#0F172A"/>
+        <circle cx="40" cy="50.5" r="2.1" fill="#FFFFFF"/>
+        <ellipse cx="62" cy="53" rx="5" ry="6.2" fill="#0F172A"/>
+        <circle cx="64" cy="50.5" r="2.1" fill="#FFFFFF"/>
+        <path d="M 32 44 Q 38 40 44 43" stroke="#0F766E" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+    <g class="hidden">
+        <ellipse cx="38" cy="55" rx="5" ry="6.5" fill="#0F172A"/>
+        <circle cx="36.3" cy="52.5" r="2.1" fill="#FFFFFF"/>
+        <ellipse cx="62" cy="55" rx="5" ry="6.5" fill="#0F172A"/>
+        <circle cx="60.3" cy="52.5" r="2.1" fill="#FFFFFF"/>
+        <path d="M 32 46 L 44 49" stroke="#0F766E" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 68 46 L 56 49" stroke="#0F766E" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Boca -->
+    <path d="M 43 64 Q 50 72 57 64" fill="#FB7185" stroke="#0F172A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Lupa (pensando) -->
+    <g class="hidden">
+        <circle cx="80" cy="76" r="9" fill="rgba(186,230,253,0.35)" stroke="#2A75BB" stroke-width="3"/>
+        <line x1="86.5" y1="82.5" x2="93" y2="92" stroke="#3C5AA6" stroke-width="4" stroke-linecap="round"/>
+    </g>
+
+    <!-- Capelo de formatura (combo alto) -->
+    <g class="hidden">
+        <polygon points="50,22 24,31 50,40 76,31" fill="#3C5AA6" stroke="#1E3A8A" stroke-width="1"/>
+        <path d="M 38 35 L 38 42 Q 50 47 62 42 L 62 35" fill="#2A75BB"/>
+        <path d="M 72 32 L 72 44" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+</svg>
+</div>
+            <h1 class="font-display text-4xl text-brand-yellow leading-tight">SHOW DE MATEMÁTICA</h1>
+            <p class="text-slate-300 font-bold">6º Ano • Jogue com a Lumi</p>
+            <button onclick="startGame()" class="w-full bg-brand-yellow text-slate-950 font-display text-3xl py-4 rounded-2xl shadow-2xl active:scale-95 transition">
+                <i class="fa-solid fa-play"></i> COMEÇAR
+            </button>
+            <p class="text-xs text-slate-500">Aumente o volume do celular para ouvir a Lumi.</p>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO COMPACTO -->
+    <header class="custom-card rounded-2xl p-3 mb-3">
+        <div class="flex items-center justify-between gap-2">
+            <h1 class="font-display text-lg text-brand-yellow leading-tight">MATEMÁTICA • 6º ANO</h1>
+            <div class="flex items-center gap-2">
+                <button onclick="toggleAudio()" class="w-10 h-10 bg-slate-800 rounded-xl border border-slate-700 active:scale-95" aria-label="Som">
+                    <i id="audioIcon" class="fa-solid fa-volume-high text-brand-yellow text-lg"></i>
+                </button>
+                <button onclick="toggleSettings()" class="w-10 h-10 bg-slate-800 rounded-xl border border-slate-700 active:scale-95" aria-label="Configurações">
+                    <i class="fa-solid fa-gear text-brand-yellow text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 mt-3">
+            <div class="bg-slate-900/90 py-1.5 rounded-xl border-2 border-brand-yellow/40 text-center">
+                <div class="text-[9px] text-slate-400 font-extrabold uppercase">Pontos</div>
+                <div id="scoreText" class="font-display text-xl text-brand-yellow leading-none">0</div>
+            </div>
+            <div class="bg-slate-900/90 py-1.5 rounded-xl border-2 border-orange-500/40 text-center">
+                <div class="text-[9px] text-slate-400 font-extrabold uppercase">Combo</div>
+                <div id="streakText" class="font-display text-xl text-orange-400 leading-none">0x</div>
+            </div>
+            <div class="bg-slate-900/90 py-1.5 rounded-xl border-2 border-indigo-500/40 text-center">
+                <div class="text-[9px] text-slate-400 font-extrabold uppercase">Questão</div>
+                <div id="levelText" class="font-display text-xl text-indigo-300 leading-none">1/10</div>
+            </div>
+        </div>
+
+        <div class="w-full bg-slate-950 rounded-full h-3 border border-slate-700 overflow-hidden mt-3">
+            <div id="progressBar" class="bg-gradient-to-r from-brand-yellow via-orange-400 to-emerald-400 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+        </div>
+
+        <!-- Configurações -->
+        <div id="settingsPanel" class="hidden mt-3 pt-3 border-t border-slate-700 space-y-3 text-xs font-bold">
+            <div class="flex items-center justify-between gap-2">
+                <span class="text-slate-300">Modo</span>
+                <div class="bg-slate-900/90 p-1 rounded-xl border border-slate-700 flex">
+                    <button id="modeStaticBtn" onclick="switchGameMode('bank')" class="seg-btn is-active"><i class="fa-solid fa-layer-group"></i> Níveis</button>
+                    <button id="modeInfiniteBtn" onclick="switchGameMode('infinite')" class="seg-btn"><i class="fa-solid fa-infinity"></i> Infinito</button>
+                </div>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+                <span class="text-slate-300">Estilo da voz</span>
+                <select id="voiceProfileSelect" onchange="changeVoiceProfile(this.value)" class="bg-slate-800 text-white rounded-xl px-2 py-2 border border-slate-600 text-xs font-bold">
+                    <option value="suave">🌿 Suave e Natural</option>
+                    <option value="alegre">☀️ Alegre e Gentil</option>
+                    <option value="calma">🌙 Calma e Tranquila</option>
+                </select>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+                <span class="text-slate-300">Voz do aparelho</span>
+                <select id="voiceSelect" onchange="changeVoice(this.value)" class="bg-slate-800 text-white rounded-xl px-2 py-2 border border-slate-600 text-xs font-bold max-w-[190px]">
+                    <option value="">Automática (melhor voz)</option>
+                </select>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+                <span class="text-slate-300">Velocidade</span>
+                <div class="bg-slate-900/90 p-1 rounded-xl border border-slate-700 flex">
+                    <button id="speedSlowBtn" onclick="setSpeechSpeed('slow')" class="seg-btn">Lenta</button>
+                    <button id="speedNormalBtn" onclick="setSpeechSpeed('normal')" class="seg-btn is-active">Normal</button>
+                </div>
+            </div>
+            <button onclick="testVoiceProfile()" class="w-full bg-brand-yellow text-slate-950 py-2.5 rounded-xl font-extrabold flex items-center justify-center gap-2 active:scale-95">
+                <i class="fa-solid fa-play"></i> Testar a voz
+            </button>
+        </div>
+    </header>
+
+    <main class="space-y-3">
+        <!-- Lumi + fala -->
+        <section class="custom-card rounded-2xl p-3 relative">
+            <div id="avatarEmotionTag" class="mb-2 inline-flex bg-slate-900/90 border-2 border-brand-yellow text-brand-yellow text-[11px] font-black px-2.5 py-1 rounded-full items-center gap-1.5">
+                <i id="emotionIcon" class="fa-solid fa-star text-xs"></i>
+                <span id="emotionName">Lumi (Pronta!)</span>
+            </div>
+            <div class="flex items-start gap-4 pl-1">
+                <div id="mascotBox" class="w-24 h-24 shrink-0 cursor-pointer active:scale-95 transition-transform" onclick="avatarPoke()">
+<svg viewBox="0 0 100 100" class="mascot-svg w-full h-full" style="filter: drop-shadow(0 12px 18px rgba(0,0,0,0.55));">
+    <!-- Antena com estrelinha -->
+    <line x1="50" y1="34" x2="50" y2="18" stroke="#0F766E" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="50,3 52.35,8.76 58.56,9.22 53.8,13.24 55.29,19.28 50,16 44.71,19.28 46.2,13.24 41.44,9.22 47.65,8.76" fill="#FBBF24" stroke="#D97706" stroke-width="1" stroke-linejoin="round"/>
+
+    <!-- Orelhinhas redondas -->
+    <circle cx="21" cy="42" r="9" fill="#5EEAD4" stroke="#0F766E" stroke-width="1.5"/>
+    <circle cx="21" cy="42" r="4.5" fill="#FBCFE8"/>
+    <circle cx="79" cy="42" r="9" fill="#5EEAD4" stroke="#0F766E" stroke-width="1.5"/>
+    <circle cx="79" cy="42" r="4.5" fill="#FBCFE8"/>
+
+    <!-- Pezinhos -->
+    <ellipse cx="38" cy="91" rx="10" ry="5" fill="#2DD4BF" stroke="#0F766E" stroke-width="1.5"/>
+    <ellipse cx="62" cy="91" rx="10" ry="5" fill="#2DD4BF" stroke="#0F766E" stroke-width="1.5"/>
+
+    <!-- Corpo -->
+    <ellipse cx="50" cy="62" rx="33" ry="30" fill="#5EEAD4" stroke="#0F766E" stroke-width="1.5"/>
+    <ellipse cx="50" cy="75" rx="19" ry="13" fill="#CCFBF1"/>
+
+    <!-- Bochechas -->
+    <circle cx="28" cy="64" r="5" fill="#FB7185" opacity="0.7"/>
+    <circle cx="72" cy="64" r="5" fill="#FB7185" opacity="0.7"/>
+
+    <!-- Olhos -->
+    <g id="eyesNormal">
+        <ellipse cx="38" cy="54" rx="5" ry="6.5" fill="#0F172A"/>
+        <circle cx="36.3" cy="51.5" r="2.1" fill="#FFFFFF"/>
+        <ellipse cx="62" cy="54" rx="5" ry="6.5" fill="#0F172A"/>
+        <circle cx="60.3" cy="51.5" r="2.1" fill="#FFFFFF"/>
+    </g>
+    <g id="eyesExcited" class="hidden">
+        <path d="M 32 57 Q 38 47 44 57" stroke="#0F172A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 56 57 Q 62 47 68 57" stroke="#0F172A" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+    <g id="eyesThinking" class="hidden">
+        <ellipse cx="38" cy="53" rx="5" ry="6.2" fill="#0F172A"/>
+        <circle cx="40" cy="50.5" r="2.1" fill="#FFFFFF"/>
+        <ellipse cx="62" cy="53" rx="5" ry="6.2" fill="#0F172A"/>
+        <circle cx="64" cy="50.5" r="2.1" fill="#FFFFFF"/>
+        <path d="M 32 44 Q 38 40 44 43" stroke="#0F766E" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+    <g id="eyesSad" class="hidden">
+        <ellipse cx="38" cy="55" rx="5" ry="6.5" fill="#0F172A"/>
+        <circle cx="36.3" cy="52.5" r="2.1" fill="#FFFFFF"/>
+        <ellipse cx="62" cy="55" rx="5" ry="6.5" fill="#0F172A"/>
+        <circle cx="60.3" cy="52.5" r="2.1" fill="#FFFFFF"/>
+        <path d="M 32 46 L 44 49" stroke="#0F766E" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 68 46 L 56 49" stroke="#0F766E" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Boca -->
+    <path id="mascotMouth" d="M 43 64 Q 50 72 57 64" fill="#FB7185" stroke="#0F172A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Lupa (pensando) -->
+    <g id="propMagnifier" class="hidden">
+        <circle cx="80" cy="76" r="9" fill="rgba(186,230,253,0.35)" stroke="#2A75BB" stroke-width="3"/>
+        <line x1="86.5" y1="82.5" x2="93" y2="92" stroke="#3C5AA6" stroke-width="4" stroke-linecap="round"/>
+    </g>
+
+    <!-- Capelo de formatura (combo alto) -->
+    <g id="mascotHat" class="hidden">
+        <polygon points="50,22 24,31 50,40 76,31" fill="#3C5AA6" stroke="#1E3A8A" stroke-width="1"/>
+        <path d="M 38 35 L 38 42 Q 50 47 62 42 L 62 35" fill="#2A75BB"/>
+        <path d="M 72 32 L 72 44" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+</svg>
+
+                </div>
+                <div class="speech-bubble p-3 flex-1 min-w-0">
+                    <div class="flex items-start justify-between gap-2">
+                        <div class="min-w-0">
+                            <h3 class="font-display text-xs tracking-wide text-brand-darkblue uppercase">Lumi fala:</h3>
+                            <p id="speechText" class="text-slate-900 font-extrabold text-base leading-snug">Olá! Vamos resolver os desafios de matemática juntos?</p>
+                        </div>
+                        <button onclick="readQuestionAgain()" class="bg-slate-100 text-slate-800 w-10 h-10 shrink-0 rounded-xl border-2 border-slate-300 active:scale-95" aria-label="Ouvir de novo">
+                            <i class="fa-solid fa-volume-high text-brand-blue text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Questão -->
+        <section id="questionBoard" class="bg-slate-950/90 border-2 border-slate-700 rounded-2xl p-4 shadow-inner space-y-3">
+            <span id="categoryBadge" class="inline-block text-[11px] font-black font-display px-2.5 py-1 rounded-lg bg-brand-yellow text-slate-950 uppercase tracking-wide">OPERAÇÕES BÁSICAS</span>
+            <p id="problemStatement" class="text-slate-100 font-black text-xl leading-relaxed">Carregando questão...</p>
+            <div id="visualPreviewContainer" class="hidden bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-center items-center shape-preview"></div>
+            <div id="explanationBox" class="hidden bg-emerald-950/80 border-2 border-emerald-500/60 p-3 rounded-xl text-emerald-200 text-sm font-semibold space-y-1">
+                <div class="font-display text-emerald-400 flex items-center gap-2"><i class="fa-solid fa-graduation-cap"></i> Explicação da Lumi:</div>
+                <p id="explanationText">Explicação detalhada...</p>
+            </div>
+        </section>
+
+        <!-- Alternativas -->
+        <section>
+            <div id="optionsContainer" class="grid grid-cols-1 gap-3 mb-3"></div>
+            <button id="hintBtn" onclick="requestHint()" class="w-full text-sm font-extrabold text-brand-yellow bg-amber-500/20 border-2 border-amber-500/40 px-4 py-3 rounded-xl flex items-center justify-center gap-2 active:scale-95">
+                <i class="fa-solid fa-lightbulb text-lg"></i> Dica da Lumi
+            </button>
+        </section>
+    </main>
+
+    <!-- Botão fixo "próxima" -->
+    <div class="next-bar">
+        <button id="nextBtn" onclick="nextQuestion()" class="hidden w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-slate-950 font-display text-2xl py-3.5 rounded-2xl shadow-2xl active:scale-95 items-center justify-center gap-3">
+            <span>PRÓXIMA PERGUNTA</span> <i class="fa-solid fa-circle-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- VITÓRIA -->
+    <div id="victoryModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden overflow-y-auto">
+        <div class="custom-card w-full rounded-3xl p-6 text-center space-y-4 border-4 border-brand-yellow shadow-2xl">
+            <div class="w-20 h-20 bg-gradient-to-tr from-brand-yellow to-orange-500 rounded-full flex items-center justify-center mx-auto text-4xl border-4 border-white">🏆</div>
+            <h2 class="font-display text-3xl text-brand-yellow">PARABÉNS!</h2>
+            <p id="victoryText" class="text-slate-100 font-extrabold text-lg">Vocês deram um show de matemática!</p>
+            <div class="grid grid-cols-3 gap-2 bg-slate-950/90 p-3 rounded-2xl border-2 border-slate-800">
+                <div><div class="text-[10px] text-slate-400 font-bold uppercase">Pontos</div><div id="finalScore" class="font-display text-2xl text-brand-yellow">0</div></div>
+                <div><div class="text-[10px] text-slate-400 font-bold uppercase">Combo</div><div id="finalStreak" class="font-display text-2xl text-orange-400">0x</div></div>
+                <div><div class="text-[10px] text-slate-400 font-bold uppercase">Nível</div><div id="finalRank" class="font-display text-lg text-emerald-400 leading-tight">Gênios! 🎓</div></div>
+            </div>
+            <button onclick="restartGame()" class="w-full bg-brand-yellow text-slate-950 font-display text-xl py-3.5 rounded-2xl active:scale-95 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-rotate-right"></i><span>JOGAR DE NOVO</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+/* ==========================================================================
+   LÓGICA COMPARTILHADA (versão projetor e versão celular)
+   ========================================================================== */
+
+//#PURE_START
+/* ---------- Utilidades ---------- */
+function rand(a, b) { return Math.floor(Math.random() * (b - a + 1)) + a; }
+function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+function clamp(v, lo, hi) { return Math.min(hi, Math.max(lo, v)); }
+
+/* ---------- Texto matemático -> fala natural em português ---------- */
+function preprocessMathText(text) {
+    if (!text) return "";
+    const nums = { 1: "um", 2: "dois", 3: "três", 4: "quatro", 5: "cinco", 6: "seis", 7: "sete", 8: "oito", 9: "nove", 10: "dez" };
+    const dens = { 2: ["meio", "meios"], 3: ["terço", "terços"], 4: ["quarto", "quartos"], 5: ["quinto", "quintos"], 6: ["sexto", "sextos"], 7: ["sétimo", "sétimos"], 8: ["oitavo", "oitavos"], 9: ["nono", "nonos"], 10: ["décimo", "décimos"] };
+    return text
+        // dinheiro: R$ 12,50 -> "12 reais e 50 centavos"; R$ 20,00 -> "20 reais"
+        .replace(/R\$\s*(\d+)(?:,(\d{2}))?/g, (m, r, c) => {
+            const reais = r === "1" ? "1 real" : r + " reais";
+            return (c && c !== "00") ? `${reais} e ${parseInt(c, 10)} centavos` : reais;
+        })
+        // horários: 10:15 -> "10 horas e 15 minutos"
+        .replace(/(\d{1,2}):(\d{2})/g, (m, h, mi) => mi === "00" ? `${h} horas` : `${h} horas e ${parseInt(mi, 10)} minutos`)
+        // frações: 5/8 -> "cinco oitavos"
+        .replace(/(\d+)\s*\/\s*(\d+)/g, (m, p1, p2) => {
+            const n = parseInt(p1, 10), d = parseInt(p2, 10);
+            const numStr = nums[n] || p1;
+            const den = dens[d];
+            const denStr = den ? (n === 1 ? den[0] : den[1]) : (d + " avos");
+            return `${numStr} ${denStr}`;
+        })
+        .replace(/(\d+)\s*[×x*]\s*(\d+)/gi, "$1 vezes $2")
+        .replace(/(\d+)\s*÷\s*(\d+)/g, "$1 dividido por $2")
+        .replace(/(\d+)\s*\+\s*(\d+)/g, "$1 mais $2")
+        .replace(/(\d+)\s*cm²/g, "$1 centímetros quadrados")
+        .replace(/(\d+)\s*m²/g, "$1 metros quadrados")
+        .replace(/(\d+)\s*cm\b/g, "$1 centímetros")
+        .replace(/(\d+)\s*m\b/g, "$1 metros")
+        .replace(/(\d+),(\d+)/g, "$1 vírgula $2")
+        .replace(/(\d+)\s*%/g, "$1 por cento")
+        .replace(/=/g, " é igual a ");
+}
+
+/* ---------- SVGs ---------- */
+function pizzaSvg(eaten, total) {
+    let slices = "";
+    for (let i = 0; i < total; i++) {
+        const a1 = (-90 + i * 360 / total) * Math.PI / 180;
+        const a2 = (-90 + (i + 1) * 360 / total) * Math.PI / 180;
+        const x1 = (50 + 42 * Math.cos(a1)).toFixed(2), y1 = (50 + 42 * Math.sin(a1)).toFixed(2);
+        const x2 = (50 + 42 * Math.cos(a2)).toFixed(2), y2 = (50 + 42 * Math.sin(a2)).toFixed(2);
+        slices += `<path d="M 50 50 L ${x1} ${y1} A 42 42 0 0 1 ${x2} ${y2} Z" fill="${i < eaten ? '#EF4444' : '#D97706'}" stroke="#FFFFFF" stroke-width="1.5"/>`;
+    }
+    return `<svg width="150" height="150" viewBox="0 0 100 100">${slices}</svg>`;
+}
+function clockSvg(h, m) {
+    const pt = (deg, len) => {
+        const r = deg * Math.PI / 180;
+        return `${(50 + len * Math.sin(r)).toFixed(2)}" y2="${(50 - len * Math.cos(r)).toFixed(2)}`;
+    };
+    let ticks = "";
+    for (let i = 0; i < 12; i++) {
+        const r = i * 30 * Math.PI / 180;
+        ticks += `<line x1="${(50 + 34 * Math.sin(r)).toFixed(2)}" y1="${(50 - 34 * Math.cos(r)).toFixed(2)}" x2="${(50 + 38 * Math.sin(r)).toFixed(2)}" y2="${(50 - 38 * Math.cos(r)).toFixed(2)}" stroke="#94A3B8" stroke-width="2"/>`;
+    }
+    const hourDeg = (h % 12) * 30 + m * 0.5, minDeg = m * 6;
+    return `<svg width="140" height="140" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42" fill="#0F172A" stroke="#FBBF24" stroke-width="3"/>${ticks}
+        <text x="50" y="26" fill="#E2E8F0" font-size="8" text-anchor="middle" font-weight="bold">12</text>
+        <text x="76" y="53" fill="#E2E8F0" font-size="8" text-anchor="middle" font-weight="bold">3</text>
+        <text x="50" y="81" fill="#E2E8F0" font-size="8" text-anchor="middle" font-weight="bold">6</text>
+        <text x="24" y="53" fill="#E2E8F0" font-size="8" text-anchor="middle" font-weight="bold">9</text>
+        <line x1="50" y1="50" x2="${pt(hourDeg, 22)}" stroke="#FBBF24" stroke-width="4" stroke-linecap="round"/>
+        <line x1="50" y1="50" x2="${pt(minDeg, 32)}" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="50" cy="50" r="3.5" fill="#FFFFFF"/></svg>`;
+}
+function rectSvg(w, h, labelTop, labelSide, centerText) {
+    return `<svg width="170" height="95" viewBox="0 0 160 90">
+        <rect x="15" y="15" width="115" height="60" fill="#065F46" stroke="#FBBF24" stroke-width="3" rx="4"/>
+        <text x="72" y="50" fill="#FFFFFF" font-size="13" text-anchor="middle" font-weight="bold">${centerText}</text>
+        <text x="72" y="10" fill="#FBBF24" font-size="12" text-anchor="middle" font-weight="bold">${labelTop}</text>
+        <text x="146" y="50" fill="#FBBF24" font-size="12" text-anchor="middle" font-weight="bold">${labelSide}</text></svg>`;
+}
+
+/* ---------- Banco de questões (10 níveis) ---------- */
+const staticQuestions = [
+    {
+        category: "Problemas do Dia a Dia: Pizza",
+        statement: "Uma pizza inteira foi dividida em 8 fatias iguais. Se a turma comeu 5 fatias (em vermelho), qual fração representa a parte da pizza que a turma COMEU?",
+        options: ["5/8", "3/8", "8/5", "5/3"], correctIndex: 0,
+        shapeSvg: pizzaSvg(5, 8),
+        hint: "Numerador = fatias comidas (5). Denominador = total de fatias (8).",
+        speech: "A pizza tinha 8 fatias e a turma comeu 5. Que fração representa o que a turma comeu?",
+        explanation: "Como foram comidas 5 fatias de um total de 8, a fração é 5/8 (cinco oitavos).",
+        mascotCorrect: "Muito bem! Delícia de pizza! A resposta certa é 5/8.",
+        mascotWrong: "Sem problemas! Lembre-se: o total de fatias fica embaixo na fração. A resposta é 5/8."
+    },
+    {
+        category: "Formas Geométricas 3D",
+        statement: "Qual é o sólido geométrico que possui 2 bases circulares idênticas e uma superfície lateral curva (parece uma lata de refrigerante)?",
+        options: ["Esfera", "Cilindro", "Cone", "Cubo"], correctIndex: 1,
+        shapeSvg: `<svg width="120" height="130" viewBox="0 0 100 110">
+            <ellipse cx="50" cy="20" rx="35" ry="12" fill="#2A75BB" stroke="#FBBF24" stroke-width="2"/>
+            <rect x="15" y="20" width="70" height="60" fill="#3C5AA6" stroke="none"/>
+            <ellipse cx="50" cy="80" rx="35" ry="12" fill="#2A75BB" stroke="#FBBF24" stroke-width="2"/>
+            <ellipse cx="50" cy="20" rx="35" ry="12" fill="#2A75BB" stroke="#FBBF24" stroke-width="2"/>
+            <line x1="15" y1="20" x2="15" y2="80" stroke="#FBBF24" stroke-width="2"/>
+            <line x1="85" y1="20" x2="85" y2="80" stroke="#FBBF24" stroke-width="2"/></svg>`,
+        hint: "Pense em uma lata de refrigerante ou em um copo alto!",
+        speech: "Qual é a forma tridimensional que lembra uma lata de refrigerante, com topo e base em formato de círculo?",
+        explanation: "O cilindro é o sólido geométrico com duas bases circulares paralelas e corpo arredondado.",
+        mascotCorrect: "Isso mesmo! O cilindro tem o formato da lata de refrigerante.",
+        mascotWrong: "Dica: a lata de refrigerante tem a forma de um cilindro."
+    },
+    {
+        category: "Problemas do Dia a Dia: Horários",
+        statement: "A aula de educação física começou às 10:15 (veja o relógio) e durou exatamente 45 minutos. A que horas a aula terminou?",
+        options: ["10:50", "11:00", "11:15", "10:45"], correctIndex: 1,
+        shapeSvg: clockSvg(10, 15),
+        hint: "Do minuto 15 até o minuto 60 faltam 45 minutos, ou seja, completa 1 hora inteira.",
+        speech: "A aula começou às 10:15 e durou 45 minutos. Que horas terminou?",
+        explanation: "10h15 + 45 minutos = 10h60. Como 60 minutos equivalem a 1 hora, temos 11:00.",
+        mascotCorrect: "Excelente! Deu bem no ponteiro das 11 horas.",
+        mascotWrong: "Somando 15 minutos com 45 minutos temos 60 minutos, que completam as 11 horas."
+    },
+    {
+        category: "Receita & Multiplicação",
+        statement: "Uma receita de bolo usa 3 ovos e 2 xícaras de açúcar. Para fazer 4 bolos para a festa da escola, quantos OVOS serão necessários?",
+        options: ["12 ovos", "8 ovos", "10 ovos", "14 ovos"], correctIndex: 0,
+        hint: "Multiplique a quantidade de ovos da receita (3) pelo número de bolos (4).",
+        speech: "Para 1 bolo usamos 3 ovos. Quantos ovos precisamos para fazer 4 bolos?",
+        explanation: "Para quadruplicar a receita: 3 ovos × 4 bolos = 12 ovos no total.",
+        mascotCorrect: "Mandaram muito bem! 3 vezes 4 é igual a 12 ovos.",
+        mascotWrong: "É só multiplicar 3 ovos por 4 receitas: 3 × 4 = 12 ovos."
+    },
+    {
+        category: "Geometria: Área do Retângulo",
+        statement: "Qual é a ÁREA de uma quadra de esportes retangular que tem 20 metros de comprimento por 10 metros de largura?",
+        options: ["200 m²", "60 m²", "100 m²", "300 m²"], correctIndex: 0,
+        shapeSvg: rectSvg(20, 10, "20 m", "10 m", "Área = ?"),
+        hint: "Área do retângulo = comprimento × largura (20 × 10).",
+        speech: "Qual é a área de uma quadra retangular com 20 metros de comprimento e 10 metros de largura?",
+        explanation: "Para achar a área do retângulo, multiplicamos a base pela altura: 20 × 10 = 200 m².",
+        mascotCorrect: "Perfeito! A área da quadra é 200 metros quadrados.",
+        mascotWrong: "Lembrete: a área é a multiplicação dos dois lados. 20 × 10 = 200 m²."
+    },
+    {
+        category: "Porcentagem no Mercado",
+        statement: "Um tênis custava R$ 200,00 e recebeu um desconto de 10% na promoção. Qual é o valor do DESCONTO em reais?",
+        options: ["R$ 20,00", "R$ 10,00", "R$ 30,00", "R$ 50,00"], correctIndex: 0,
+        hint: "Calcular 10% de um valor é só dividir esse valor por 10!",
+        speech: "O tênis custa R$ 200,00. Quanto dá um desconto de 10%?",
+        explanation: "10% de R$ 200,00 = 200 ÷ 10 = R$ 20,00 de desconto.",
+        mascotCorrect: "Desconto calculado! São R$ 20,00 de economia.",
+        mascotWrong: "Dica fácil: para achar 10%, divida o preço por 10. 200 ÷ 10 = 20."
+    },
+    {
+        category: "Identificação de Triângulos",
+        statement: "Como se chama o triângulo que possui TODOS os 3 lados com medidas iguais?",
+        options: ["Equilátero", "Isósceles", "Escaleno", "Retângulo"], correctIndex: 0,
+        shapeSvg: `<svg width="110" height="95" viewBox="0 0 100 90">
+            <polygon points="50,8 8,80 92,80" fill="#2A75BB" stroke="#FBBF24" stroke-width="3"/>
+            <line x1="22" y1="42" x2="30" y2="46" stroke="#fff" stroke-width="2"/><line x1="78" y1="42" x2="70" y2="46" stroke="#fff" stroke-width="2"/><line x1="50" y1="76" x2="50" y2="84" stroke="#fff" stroke-width="2"/></svg>`,
+        hint: "Pense na palavra “equi”, que vem de igualdade!",
+        speech: "Qual é o nome do triângulo que tem os três lados exatamente iguais?",
+        explanation: "Equilátero tem 3 lados iguais. Isósceles tem 2 lados iguais. Escaleno tem os 3 lados diferentes.",
+        mascotCorrect: "Certíssimo! É o triângulo equilátero.",
+        mascotWrong: "Lembrete: lados todos iguais, triângulo equilátero."
+    },
+    {
+        category: "Divisão em Grupos",
+        statement: "Uma turma de 32 alunos será dividida em 4 grupos com o mesmo número de alunos. Quantos alunos ficarão em cada grupo?",
+        options: ["8 alunos", "6 alunos", "9 alunos", "12 alunos"], correctIndex: 0,
+        hint: "Divida o total de alunos (32) pelo número de grupos (4).",
+        speech: "Trinta e dois alunos serão divididos em 4 grupos iguais. Quantos alunos ficam em cada grupo?",
+        explanation: "32 ÷ 4 = 8, pois 4 × 8 = 32. Cada grupo terá 8 alunos.",
+        mascotCorrect: "Muito bem! Cada grupo fica com 8 alunos.",
+        mascotWrong: "Dividindo 32 por 4, o resultado é 8. Confira: 4 × 8 = 32."
+    },
+    {
+        category: "Geometria: Perímetro",
+        statement: "Uma horta retangular tem 8 metros de comprimento e 5 metros de largura. Quantos metros de cerca são necessários para contornar toda a horta (PERÍMETRO)?",
+        options: ["26 m", "40 m", "13 m", "30 m"], correctIndex: 0,
+        shapeSvg: rectSvg(8, 5, "8 m", "5 m", "Perímetro = ?"),
+        hint: "Perímetro é a soma de todos os lados: 8 + 5 + 8 + 5.",
+        speech: "Uma horta retangular tem 8 metros de comprimento e 5 metros de largura. Qual é o perímetro?",
+        explanation: "Perímetro = 8 + 5 + 8 + 5 = 26 m.",
+        mascotCorrect: "Isso mesmo! A cerca terá 26 metros.",
+        mascotWrong: "Some os quatro lados: 8 + 5 + 8 + 5 = 26 metros."
+    },
+    {
+        category: "Números Decimais: Compras",
+        statement: "Maria comprou um caderno de R$ 12,50 e uma caneta de R$ 3,50. Quanto ela gastou ao todo?",
+        options: ["R$ 16,00", "R$ 15,00", "R$ 17,50", "R$ 14,50"], correctIndex: 0,
+        hint: "Alinhe as vírgulas: 12,50 + 3,50. Primeiro some os centavos, depois os reais.",
+        speech: "Maria comprou um caderno de R$ 12,50 e uma caneta de R$ 3,50. Quanto ela gastou ao todo?",
+        explanation: "12,50 + 3,50 = 16,00. Ela gastou R$ 16,00.",
+        mascotCorrect: "Ótimo! Maria gastou 16 reais.",
+        mascotWrong: "Alinhando as vírgulas: 12,50 + 3,50 = 16,00."
+    }
+];
+
+/* ---------- Gerador infinito de questões ---------- */
+function pickOptions(ans, distractors) {
+    const list = [ans];
+    for (const d of distractors) { if (d > 0 && !list.includes(d)) list.push(d); }
+    let k = 1;
+    while (list.length < 4) { if (!list.includes(ans + k)) list.push(ans + k); k++; }
+    return list.slice(0, 4);
+}
+
+function generateProceduralQuestion() {
+    const types = ['add_decimal', 'mult_basic', 'percentage', 'perimeter_sq'];
+    const t = types[Math.floor(Math.random() * types.length)];
+
+    if (t === 'add_decimal') {
+        const A = rand(10, 89), B = rand(10, 89), T = A + B;
+        const fmt = v => (v / 10).toFixed(1).replace('.', ',');
+        const opts = pickOptions(T, [T + 11, T - 5, T + 20, T + 10]);
+        return {
+            category: "Cálculo Rápido (Infinito)",
+            statement: `Quanto é ${fmt(A)} + ${fmt(B)}?`,
+            options: opts.map(fmt), correctIndex: 0,
+            hint: "Alinhe as vírgulas para somar os números decimais!",
+            speech: `Quanto é ${fmt(A)} mais ${fmt(B)}?`,
+            explanation: `${fmt(A)} + ${fmt(B)} = ${fmt(T)}`,
+            mascotCorrect: "Cálculo perfeito, turma!",
+            mascotWrong: "Atenção ao somar números com vírgula!"
+        };
+    }
+    if (t === 'mult_basic') {
+        const a = rand(2, 12), b = rand(2, 12), ans = a * b;
+        const opts = pickOptions(ans, [ans + a, ans - b, ans + 10, ans + 2]);
+        return {
+            category: "Tabuada & Multiplicação",
+            statement: `Qual é o resultado de ${a} × ${b}?`,
+            options: opts.map(String), correctIndex: 0,
+            hint: `Multiplique ${a} por ${b}.`,
+            speech: `Quanto é ${a} vezes ${b}?`,
+            explanation: `${a} × ${b} = ${ans}`,
+            mascotCorrect: "Na mosca! Tabuada afiada!",
+            mascotWrong: "Vamos revisar a tabuada juntos!"
+        };
+    }
+    if (t === 'percentage') {
+        const price = rand(2, 25) * 20;
+        const pct = [10, 20, 25, 50][rand(0, 3)];
+        const disc = price * pct / 100;
+        const fmt = v => `R$ ${v},00`;
+        const opts = pickOptions(disc, [disc * 2, price - disc, disc + 10, Math.max(1, disc - 10)]);
+        const hints = {
+            10: "Para achar 10%, divida o valor por 10.",
+            20: "20% é o dobro de 10%. Divida por 10 e multiplique por 2.",
+            25: "25% é a quarta parte. Divida o valor por 4.",
+            50: "50% é a metade do valor."
+        };
+        return {
+            category: "Porcentagem no Mercado",
+            statement: `Um produto custa ${fmt(price)} e está com ${pct}% de desconto. Qual é o valor do DESCONTO?`,
+            options: opts.map(fmt), correctIndex: 0,
+            hint: hints[pct],
+            speech: `Um produto custa ${fmt(price)} e está com ${pct}% de desconto. Qual é o valor do desconto?`,
+            explanation: `${pct}% de ${fmt(price)} = ${fmt(disc)}.`,
+            mascotCorrect: "Desconto calculado com sucesso!",
+            mascotWrong: "Revise: porcentagem é uma parte de 100."
+        };
+    }
+    const side = rand(3, 17), ans = side * 4;
+    const opts = pickOptions(ans, [side * 2, ans + 4, side * side, ans - 4]);
+    return {
+        category: "Geometria: Quadrado",
+        statement: `Um quadrado tem lado medindo ${side} cm. Qual é o seu perímetro?`,
+        options: opts.map(o => `${o} cm`), correctIndex: 0,
+        shapeSvg: `<svg width="100" height="100" viewBox="0 0 100 100">
+            <rect x="15" y="15" width="70" height="70" fill="none" stroke="#FBBF24" stroke-width="3"/>
+            <text x="50" y="55" fill="#FFFFFF" font-size="14" text-anchor="middle" font-weight="bold">${side} cm</text></svg>`,
+        hint: "Um quadrado tem 4 lados iguais, então multiplique o lado por 4!",
+        speech: `Um quadrado tem lado de ${side} centímetros. Qual é o perímetro?`,
+        explanation: `Perímetro do quadrado = 4 × lado = 4 × ${side} = ${ans} cm.`,
+        mascotCorrect: "Excelente! Quatro lados iguais!",
+        mascotWrong: "Multiplique o lado por 4 para achar o perímetro do quadrado."
+    };
+}
+
+/* Embaralha as alternativas mantendo a resposta correta */
+function prepareQuestion(raw) {
+    const items = raw.options.map((o, i) => ({ o, c: i === raw.correctIndex }));
+    shuffle(items);
+    return Object.assign({}, raw, {
+        options: items.map(x => x.o),
+        correctIndex: items.findIndex(x => x.c)
+    });
+}
+//#PURE_END
+
+/* ==========================================================================
+   1. EFEITOS SONOROS SUAVES (Web Audio API)
+   ========================================================================== */
+class AudioEngine {
+    constructor() { this.ctx = null; this.enabled = true; }
+    init() {
+        if (!this.ctx) {
+            const AC = window.AudioContext || window.webkitAudioContext;
+            if (AC) this.ctx = new AC();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+    }
+    tone(freq, start, dur, vol = 0.08, type = 'sine') {
+        const t = this.ctx.currentTime + start;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, t);
+        gain.gain.setValueAtTime(0.0001, t);
+        gain.gain.exponentialRampToValueAtTime(vol, t + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+        osc.connect(gain); gain.connect(this.ctx.destination);
+        osc.start(t); osc.stop(t + dur + 0.05);
+    }
+    play(fn) { if (!this.enabled) return; this.init(); if (!this.ctx) return; fn(); }
+    playCorrectFanfare() { this.play(() => { [659.25, 783.99, 1046.5].forEach((f, i) => this.tone(f, i * 0.12, 0.55, 0.09)); }); }
+    playWrongBuzzer() { this.play(() => { this.tone(261.6, 0, 0.35, 0.07); this.tone(220, 0.16, 0.5, 0.07); }); }
+    playClick() { this.play(() => this.tone(620, 0, 0.07, 0.04)); }
+    playVictoryFanfare() { this.play(() => { [523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((f, i) => this.tone(f, i * 0.14, 0.7, 0.08)); }); }
+}
+const audioFX = new AudioEngine();
+
+/* ==========================================================================
+   2. VOZ NATURAL E SUAVE (Web Speech API)
+   ========================================================================== */
+const $ = id => document.getElementById(id);
+let speechEnabled = true;
+let synth = null;
+try { synth = window.speechSynthesis || null; } catch (e) { synth = null; }
+let availablePtVoices = [];
+let chosenVoiceName = "";
+let currentVoiceProfile = 'suave';
+let speechSpeedBase = 1.0;
+let speakToken = 0;
+
+// pitch perto de 1 e ritmo calmo = voz mais natural
+const VOICE_PROFILES = {
+    suave:  { rate: 0.95, pitch: 1.05, pause: 280 },
+    alegre: { rate: 1.02, pitch: 1.12, pause: 200 },
+    calma:  { rate: 0.88, pitch: 1.0,  pause: 350 }
+};
+
+function scoreVoice(v) {
+    const name = (v.name || '').toLowerCase();
+    const lang = (v.lang || '').replace('_', '-').toLowerCase();
+    let s = 0;
+    if (lang === 'pt-br') s += 50; else if (lang.startsWith('pt')) s += 20; else return -1;
+    if (/natural|neural|online|enhanced|aprimorada|premium/.test(name)) s += 40;
+    if (/google/.test(name)) s += 25;
+    if (/francisca|luciana|vit[oó]ria|thalita|fernanda|camila|maria|helo[ií]sa/.test(name)) s += 20;
+    if (/antonio|daniel|felipe|ricardo/.test(name)) s -= 5;
+    if (v.localService === false) s += 5;
+    return s;
+}
+
+function initVoices() {
+    if (!synth) return;
+    availablePtVoices = synth.getVoices()
+        .map(v => ({ v, s: scoreVoice(v) }))
+        .filter(x => x.s >= 0)
+        .sort((a, b) => b.s - a.s)
+        .map(x => x.v);
+    const sel = $('voiceSelect');
+    if (sel) {
+        const current = sel.value;
+        sel.innerHTML = '<option value="">Automática (melhor voz)</option>' +
+            availablePtVoices.map(v => `<option value="${v.name.replace(/"/g, '&quot;')}">${v.name}</option>`).join('');
+        sel.value = current || chosenVoiceName || "";
+    }
+}
+function getSelectedVoice() {
+    if (!availablePtVoices.length) return null;
+    return availablePtVoices.find(v => v.name === chosenVoiceName) || availablePtVoices[0];
+}
+try {
+    if (synth) {
+        initVoices();
+        if (synth.onvoiceschanged !== undefined) synth.onvoiceschanged = initVoices;
+    }
+} catch (e) { synth = null; }
+
+function changeVoice(name) { chosenVoiceName = name; audioFX.playClick(); testVoiceProfile(); }
+
+function setSegActive(activeId, otherIds) {
+    const a = $(activeId); if (a) a.classList.add('is-active');
+    otherIds.forEach(id => { const e = $(id); if (e) e.classList.remove('is-active'); });
+}
+function setSpeechSpeed(speed) {
+    audioFX.playClick();
+    if (speed === 'slow') { speechSpeedBase = 0.85; setSegActive('speedSlowBtn', ['speedNormalBtn']); }
+    else { speechSpeedBase = 1.0; setSegActive('speedNormalBtn', ['speedSlowBtn']); }
+}
+function changeVoiceProfile(profile) {
+    currentVoiceProfile = profile;
+    audioFX.playClick();
+    testVoiceProfile();
+}
+function testVoiceProfile() {
+    const samples = {
+        suave: "Olá, turma! Eu sou a Lumi. Vamos aprender matemática juntos, com calma e alegria.",
+        alegre: "Oi, turma! Eu sou a Lumi, e hoje vai ser muito divertido!",
+        calma: "Olá. Eu sou a Lumi. Vamos resolver cada desafio com tranquilidade."
+    };
+    const text = samples[currentVoiceProfile] || samples.suave;
+    setText('speechText', text);
+    speak(text);
+}
+
+function setTalking(on) {
+    const box = $('mascotBox');
+    if (box) box.classList.toggle('talking', on);
+}
+function splitChunks(text) {
+    return (text.match(/[^.!?…:;]+[.!?…:;]*/g) || [text]).map(s => s.trim()).filter(Boolean);
+}
+
+function speak(rawText) {
+    if (!speechEnabled || !synth || !rawText) return;
+    const token = ++speakToken;
+    const chunks = splitChunks(preprocessMathText(rawText));
+    const prof = VOICE_PROFILES[currentVoiceProfile] || VOICE_PROFILES.suave;
+    let i = 0;
+
+    const next = () => {
+        if (token !== speakToken) return;
+        if (i >= chunks.length) { setTalking(false); return; }
+        const u = new SpeechSynthesisUtterance(chunks[i++]);
+        u.lang = 'pt-BR';
+        const voice = getSelectedVoice();
+        if (voice) u.voice = voice;
+        u.rate = clamp(speechSpeedBase * prof.rate, 0.6, 1.2);
+        u.pitch = prof.pitch;
+        u.volume = 1;
+        u.onstart = () => { if (token === speakToken) setTalking(true); };
+        u.onend = () => { if (token === speakToken) setTimeout(next, prof.pause); };
+        u.onerror = () => { if (token === speakToken) setTalking(false); };
+        synth.speak(u);
+    };
+
+    if (synth.speaking || synth.pending) { synth.cancel(); setTimeout(next, 80); }
+    else next();
+}
+
+function toggleAudio() {
+    speechEnabled = !speechEnabled;
+    audioFX.enabled = speechEnabled;
+    const icon = $('audioIcon');
+    if (speechEnabled) {
+        if (icon) icon.className = 'fa-solid fa-volume-high text-brand-yellow text-lg';
+        speak("Som e voz ativados.");
+    } else {
+        if (icon) icon.className = 'fa-solid fa-volume-xmark text-rose-500 text-lg';
+        speakToken++;
+        if (synth) synth.cancel();
+        setTalking(false);
+    }
+}
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => {});
+    } else if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+    }
+}
+function toggleSettings() {
+    const p = $('settingsPanel');
+    if (p) p.classList.toggle('hidden');
+}
+
+/* ==========================================================================
+   3. ESTADO DO JOGO E MASCOTE (Lumi)
+   ========================================================================== */
+let gameMode = 'bank';
+let currentQuestionIndex = 0;
+let currentQ = null;
+let score = 0, streak = 0, maxStreak = 0;
+let correctCount = 0, answeredCount = 0;
+let answered = false;
+let started = false;
+
+function setText(id, t) { const e = $(id); if (e) e.textContent = t; }
+function show(id) { const e = $(id); if (e) e.classList.remove('hidden'); }
+function hide(id) { const e = $(id); if (e) e.classList.add('hidden'); }
+
+function setAvatarEmotion(emotion) {
+    const mouth = $('mascotMouth');
+    const tag = $('emotionName');
+    const icon = $('emotionIcon');
+    ['eyesNormal', 'eyesExcited', 'eyesThinking', 'eyesSad', 'propMagnifier'].forEach(hide);
+    if (streak >= 3) show('mascotHat'); else hide('mascotHat');
+
+    const set = (eyes, d, label, iconCls) => {
+        show(eyes);
+        if (mouth) mouth.setAttribute('d', d);
+        if (tag) tag.textContent = label;
+        if (icon) icon.className = iconCls;
+    };
+    switch (emotion) {
+        case 'happy':
+            set('eyesNormal', 'M 43 64 Q 50 73 57 64', 'Lumi (Alegre!)', 'fa-solid fa-face-smile text-sm'); break;
+        case 'excited':
+            set('eyesExcited', 'M 41 63 Q 50 78 59 63', 'Lumi (Comemorando! ✨)', 'fa-solid fa-face-laugh-beam text-sm'); break;
+        case 'sad':
+            set('eyesSad', 'M 44 70 Q 50 62 56 70', 'Lumi (Te encorajando!)', 'fa-solid fa-heart text-sm'); break;
+        case 'thinking':
+            set('eyesThinking', 'M 46 67 Q 50 65 54 67', 'Lumi (Pensando...)', 'fa-solid fa-magnifying-glass text-sm');
+            show('propMagnifier'); break;
+        default:
+            set('eyesNormal', 'M 43 64 Q 50 72 57 64', 'Lumi (Pronta!)', 'fa-solid fa-star text-sm');
+    }
+}
+
+function avatarPoke() {
+    audioFX.playClick();
+    const quotes = [
+        "Oi! Eu sou a Lumi, e a matemática é o nosso superpoder!",
+        "Estou pronta para a próxima questão! E vocês?",
+        "Vocês são uma turma muito inteligente!",
+        "Se precisarem de uma dica, toquem no botão amarelo."
+    ];
+    const q = quotes[Math.floor(Math.random() * quotes.length)];
+    setText('speechText', q);
+    setAvatarEmotion('excited');
+    speak(q);
+    const box = $('mascotBox');
+    if (box) { box.classList.add('wiggle'); setTimeout(() => box.classList.remove('wiggle'), 600); }
+}
+
+function setModeButtons(mode) {
+    if (mode === 'bank') setSegActive('modeStaticBtn', ['modeInfiniteBtn']);
+    else setSegActive('modeInfiniteBtn', ['modeStaticBtn']);
+}
+function resetStats() {
+    currentQuestionIndex = 0; score = 0; streak = 0; maxStreak = 0; correctCount = 0; answeredCount = 0;
+}
+function switchGameMode(mode) {
+    if (mode === gameMode) return;
+    gameMode = mode;
+    audioFX.playClick();
+    setModeButtons(mode);
+    resetStats();
+    loadCurrentQuestion(started);
+}
+
+function loadCurrentQuestion(speakNow = true) {
+    answered = false;
+    const raw = gameMode === 'bank'
+        ? staticQuestions[currentQuestionIndex % staticQuestions.length]
+        : generateProceduralQuestion();
+    currentQ = prepareQuestion(raw);
+    const q = currentQ;
+
+    const totalQ = gameMode === 'bank' ? staticQuestions.length : '∞';
+    setText('levelText', `${currentQuestionIndex + 1}/${totalQ}`);
+    setText('scoreText', score);
+    setText('streakText', `${streak}x`);
+
+    const percent = gameMode === 'bank'
+        ? (currentQuestionIndex / staticQuestions.length) * 100
+        : ((currentQuestionIndex % 10) / 10) * 100;
+    $('progressBar').style.width = `${Math.min(percent, 100)}%`;
+
+    setText('categoryBadge', q.category);
+    setText('problemStatement', q.statement);
+    setText('speechText', q.speech);
+
+    hide('explanationBox');
+    const preview = $('visualPreviewContainer');
+    if (q.shapeSvg) { preview.innerHTML = q.shapeSvg; preview.classList.remove('hidden'); }
+    else { preview.classList.add('hidden'); }
+
+    hide('nextBtn');
+    const hintBtn = $('hintBtn');
+    hintBtn.disabled = false;
+    hintBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+    const box = $('optionsContainer');
+    box.innerHTML = '';
+    const letters = ['A', 'B', 'C', 'D'];
+    q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerHTML = `<div class="opt-left"><span class="opt-letter">${letters[idx]}</span><span class="opt-text">${opt}</span></div><i class="fa-regular fa-circle opt-icon"></i>`;
+        btn.onclick = () => checkMCQAnswer(idx, btn);
+        box.appendChild(btn);
+    });
+
+    setAvatarEmotion('thinking');
+    if (speakNow) speak(q.speech);
+}
+
+function readQuestionAgain() {
+    if (!currentQ) return;
+    audioFX.playClick();
+    speak(currentQ.speech);
+}
+
+function requestHint() {
+    if (!currentQ || answered) return;
+    audioFX.playClick();
+    setText('speechText', "Dica: " + currentQ.hint);
+    setAvatarEmotion('thinking');
+    speak("Uma dica: " + currentQ.hint);
+    const b = $('hintBtn');
+    b.disabled = true;
+    b.classList.add('opacity-50', 'cursor-not-allowed');
+}
+
+function checkMCQAnswer(selectedIndex, btn) {
+    if (answered || !currentQ) return;
+    answered = true;
+    answeredCount++;
+    const q = currentQ;
+    const buttons = $('optionsContainer').querySelectorAll('button');
+    buttons.forEach(b => { b.disabled = true; });
+
+    if (selectedIndex === q.correctIndex) {
+        btn.classList.add('opt-correct');
+        btn.querySelector('i').className = 'fa-solid fa-circle-check opt-icon';
+        handleSuccess(q);
+    } else {
+        btn.classList.add('opt-wrong');
+        btn.querySelector('i').className = 'fa-solid fa-circle-xmark opt-icon';
+        const cb = buttons[q.correctIndex];
+        if (cb) { cb.classList.add('opt-reveal'); cb.querySelector('i').className = 'fa-solid fa-circle-check opt-icon'; }
+        handleFailure(q);
+    }
+    const hintBtn = $('hintBtn');
+    hintBtn.disabled = true;
+    hintBtn.classList.add('opacity-50', 'cursor-not-allowed');
+}
+
+function showExplanation(q) {
+    if (q.explanation) {
+        setText('explanationText', q.explanation);
+        show('explanationBox');
+    }
+    show('nextBtn');
+}
+
+function handleSuccess(q) {
+    audioFX.playCorrectFanfare();
+    correctCount++;
+    streak++;
+    if (streak > maxStreak) maxStreak = streak;
+    score += 100 + streak * 25;
+    setText('scoreText', score);
+    setText('streakText', `${streak}x`);
+    setText('speechText', q.mascotCorrect);
+    setAvatarEmotion('excited');
+    showExplanation(q);
+    if (window.confetti) confetti({ particleCount: 90, spread: 80, origin: { y: 0.6 } });
+    speak(q.mascotCorrect);
+}
+
+function handleFailure(q) {
+    audioFX.playWrongBuzzer();
+    streak = 0;
+    setText('streakText', "0x");
+    setText('speechText', q.mascotWrong);
+    setAvatarEmotion('sad');
+    showExplanation(q);
+    speak(q.mascotWrong);
+}
+
+function nextQuestion() {
+    audioFX.playClick();
+    currentQuestionIndex++;
+    if (gameMode === 'bank' && currentQuestionIndex >= staticQuestions.length) endGame();
+    else loadCurrentQuestion();
+}
+
+function endGame() {
+    audioFX.playVictoryFanfare();
+    $('progressBar').style.width = '100%';
+    const total = staticQuestions.length;
+    const pct = total ? (correctCount / total) * 100 : 0;
+    let rank = "Vamos treinar! 💪";
+    if (pct >= 90) rank = "Gênios! 🎓";
+    else if (pct >= 70) rank = "Craques! ⭐";
+    else if (pct >= 50) rank = "Em evolução! 🚀";
+
+    setText('finalScore', score);
+    setText('finalStreak', `${maxStreak}x`);
+    setText('finalRank', rank);
+    setText('victoryText', `Vocês acertaram ${correctCount} de ${total} desafios!`);
+    show('victoryModal');
+    if (window.confetti) confetti({ particleCount: 200, spread: 110, origin: { y: 0.5 } });
+    speak(`Parabéns, turma! Vocês acertaram ${correctCount} de ${total} questões. Foi um show de matemática!`);
+}
+
+function restartGame() {
+    audioFX.playClick();
+    resetStats();
+    hide('victoryModal');
+    loadCurrentQuestion();
+}
+
+function startGame() {
+    started = true;
+    audioFX.init();
+    hide('startOverlay');
+    speak(currentQ ? currentQ.speech : "Olá, turma!");
+}
+
+document.addEventListener('keydown', e => {
+    const overlay = $('startOverlay');
+    if (overlay && !overlay.classList.contains('hidden')) {
+        if (e.key === 'Enter') startGame();
+        return;
+    }
+    const modal = $('victoryModal');
+    if (modal && !modal.classList.contains('hidden')) return;
+    const map = { a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
+    const k = e.key.toLowerCase();
+    if (!answered && k in map) {
+        const btns = $('optionsContainer').querySelectorAll('button');
+        if (btns[map[k]]) btns[map[k]].click();
+    } else if (answered && (e.key === 'Enter' || e.key === 'ArrowRight')) {
+        e.preventDefault();
+        nextQuestion();
+    }
+});
+
+function initGame() {
+    if (window.__gameInited) return;
+    window.__gameInited = true;
+    setModeButtons('bank');
+    setSegActive('speedNormalBtn', ['speedSlowBtn']);
+    loadCurrentQuestion(false);
+}
+window.addEventListener('error', ev => {
+    const el = document.getElementById('problemStatement');
+    if (el && !currentQ) el.textContent = 'Erro ao carregar: ' + (ev.message || 'desconhecido');
+});
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initGame);
+else initGame();
+window.addEventListener('load', initGame);
+
+    </script>
+</div>
+
+
+</body></html>
